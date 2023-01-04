@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from "react";
-import "./styles.css";
+import React,{useState,useEffect} from 'react'
+import '../styles/App.css';
 const App = () => {
-  //code here
-  const [name, setName] = useState("");
-  function handleChange(event) {
-    setName(event.target.value);
-  }
-  function handleClick() {
-    document.getElementById(
-      "text"
-    ).innerHTML = ` Hello my name is ${name} and I study at Newton School`;
+//code here
+  const[name, setName] = useState({firstName: '_______'})
+  const[input, setInput] = useState("")
+ 
+  const handleOnChange= (e)=>{
+    setInput({firstName: e.target.value})
+    
+   }
+
+   const handleOnClick = ()=>{
+    setName(input)
   }
   return (
     <div id="main">
-      <input id="input" onChange={handleChange}></input>
-      <button id="button" onClick={handleClick}>
-        Click
-      </button>
-      <p id="text"> Hello my name is ____ and I study at Newton School</p>
+      <input type='text' id='input' onChange={handleOnChange}></input>
+      <button id='button' onClick={handleOnClick}>Click</button>
+      <p id='text'> Hello my name is {name.firstName} and I study at Newton School</p>
     </div>
-  );
-};
+  )
+}
+
 
 export default App;
